@@ -1,0 +1,581 @@
+:root {
+  --primary: #cc785c;
+  --primary-active: #a9583e;
+  --ink: #141413;
+  --body: #3d3d3a;
+  --muted: #6c6a64;
+  --hairline: #e6dfd8;
+  --canvas: #faf9f5;
+  --surface-soft: #f5f0e8;
+  --surface-card: #efe9de;
+  --surface-dark: #181715;
+  --surface-dark-elevated: #252320;
+  --on-primary: #ffffff;
+  --on-dark: #faf9f5;
+  --success: #5db872;
+  --error: #c64545;
+  --warning: #d4a017;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--body);
+  background: var(--canvas);
+  font-family: SimSun, "Songti SC", "STSong", serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.topbar {
+  min-height: 56px;
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mark {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  color: var(--primary);
+  background: var(--surface-card);
+  border-radius: 50%;
+  font-size: 20px;
+}
+
+h1,
+h2,
+.mode strong,
+.stats strong {
+  margin: 0;
+  color: var(--ink);
+  font-family: KaiTi, "Kaiti SC", STKaiti, serif;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+h1 {
+  font-size: 24px;
+  line-height: 1.1;
+}
+
+.brand p {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.toolbar,
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.bankPicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.bankPicker select {
+  min-height: 40px;
+  padding: 0 10px;
+  color: var(--ink);
+  background: var(--canvas);
+  border: 1px solid var(--hairline);
+  border-radius: 8px;
+}
+
+.btn,
+.mode {
+  border: 0;
+  cursor: pointer;
+  border-radius: 8px;
+  min-height: 40px;
+}
+
+.btn {
+  padding: 0 14px;
+  font-size: 14px;
+}
+
+.primary {
+  color: var(--on-primary);
+  background: var(--primary);
+}
+
+.primary:active {
+  background: var(--primary-active);
+}
+
+.secondary {
+  color: var(--ink);
+  background: var(--canvas);
+  border: 1px solid var(--hairline);
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.layout {
+  width: min(1200px, calc(100vw - 40px));
+  margin: 32px auto;
+  display: grid;
+  grid-template-columns: 252px 1fr;
+  gap: 24px;
+}
+
+.panel,
+.questionCard {
+  border-radius: 12px;
+}
+
+.panel {
+  padding: 14px;
+  background: var(--surface-dark);
+  color: var(--on-dark);
+  align-self: start;
+}
+
+.modeBox {
+  display: grid;
+  gap: 8px;
+}
+
+.mode {
+  width: 100%;
+  min-height: 48px;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--on-dark);
+  background: var(--surface-dark-elevated);
+  text-align: left;
+}
+
+.mode.active {
+  background: var(--primary);
+}
+
+.mode strong {
+  color: inherit;
+  font-size: 20px;
+}
+
+.filters {
+  margin-top: 14px;
+  padding-top: 12px;
+  display: grid;
+  gap: 8px;
+  border-top: 1px solid rgba(250, 249, 245, 0.12);
+}
+
+.filters label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #d9d5cc;
+  font-size: 14px;
+}
+
+.filters input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--primary);
+}
+
+.stats {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.stats div {
+  padding: 8px 6px;
+  background: var(--surface-dark-elevated);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.stats span {
+  display: block;
+  color: #a09d96;
+  font-size: 12px;
+}
+
+.stats strong {
+  display: block;
+  margin-top: 2px;
+  color: var(--on-dark);
+  font-size: 20px;
+}
+
+.panelActions {
+  margin-top: 12px;
+  display: grid;
+  gap: 8px;
+}
+
+.panelBtn {
+  width: 100%;
+  color: var(--on-dark);
+  background: var(--surface-dark-elevated);
+}
+
+.practice {
+  min-width: 0;
+}
+
+.questionCard {
+  min-height: 480px;
+  padding: 24px 28px;
+  background: var(--surface-card);
+}
+
+.questionMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.jumpForm {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.jumpForm input {
+  width: 68px;
+  height: 36px;
+  padding: 4px 8px;
+  color: var(--ink);
+  background: var(--canvas);
+  border: 1px solid var(--hairline);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  height: 28px;
+  padding: 0 12px;
+  color: var(--on-primary);
+  background: var(--primary);
+  border-radius: 999px;
+}
+
+h2 {
+  margin-top: 20px;
+  font-size: 27px;
+  line-height: 1.38;
+}
+
+.options {
+  margin-top: 22px;
+  display: grid;
+  gap: 10px;
+}
+
+.option {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 12px;
+  align-items: start;
+  padding: 12px 14px;
+  background: var(--canvas);
+  border: 1px solid var(--hairline);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.option input {
+  width: 22px;
+  height: 22px;
+  margin: 2px 0 0;
+  accent-color: var(--primary);
+}
+
+.option span {
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+.option.correct {
+  border-color: var(--success);
+  background: #eef8ef;
+}
+
+.option.wrong {
+  border-color: var(--error);
+  background: #faeeee;
+}
+
+.feedback {
+  margin-top: 16px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  line-height: 1.6;
+}
+
+.feedback.ok {
+  color: #255c32;
+  background: #edf8ef;
+}
+
+.feedback.bad {
+  color: #7a2626;
+  background: #faeeee;
+}
+
+.feedback.note {
+  color: #684b18;
+  background: #fff5df;
+}
+
+.actions {
+  position: sticky;
+  bottom: 0;
+  z-index: 3;
+  margin: 18px -28px -24px;
+  padding: 12px 28px;
+  background: rgba(239, 233, 222, 0.96);
+  border-top: 1px solid var(--hairline);
+  backdrop-filter: blur(8px);
+}
+
+.bankDialog {
+  width: min(980px, calc(100vw - 32px));
+  max-height: min(760px, calc(100vh - 32px));
+  padding: 0;
+  overflow: auto;
+  color: var(--body);
+  background: var(--canvas);
+  border: 1px solid var(--hairline);
+  border-radius: 12px;
+}
+
+.bankDialog::backdrop {
+  background: rgba(20, 20, 19, 0.42);
+}
+
+.bankHeader {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  padding: 22px 24px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: var(--canvas);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.bankHeader h2 {
+  margin: 0;
+  font-size: 28px;
+  line-height: 1.2;
+}
+
+.bankHeader p {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
+.bankTools {
+  position: sticky;
+  top: 91px;
+  z-index: 2;
+  padding: 16px 24px;
+  display: grid;
+  grid-template-columns: 1fr 160px;
+  gap: 12px;
+  background: var(--surface-soft);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.textInput {
+  min-height: 40px;
+  padding: 9px 12px;
+  color: var(--ink);
+  background: var(--canvas);
+  border: 1px solid var(--hairline);
+  border-radius: 8px;
+}
+
+.bankList {
+  padding: 20px 24px 24px;
+  display: grid;
+  gap: 14px;
+}
+
+.bankItem {
+  padding: 20px;
+  background: var(--surface-card);
+  border-radius: 8px;
+}
+
+.bankMeta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.bankItem h3 {
+  margin: 14px 0 12px;
+  color: var(--ink);
+  font-family: KaiTi, "Kaiti SC", STKaiti, serif;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.bankItem ol {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  display: grid;
+  gap: 6px;
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+.bankItem p {
+  margin: 12px 0 0;
+  color: var(--primary-active);
+}
+
+@media (max-width: 820px) {
+  .topbar {
+    padding: 8px 12px;
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .brand p {
+    display: none;
+  }
+
+  .toolbar {
+    gap: 8px;
+  }
+
+  .bankPicker span {
+    display: none;
+  }
+
+  .bankPicker select {
+    min-height: 34px;
+    max-width: 116px;
+    font-size: 13px;
+  }
+
+  .topbar .btn {
+    min-height: 34px;
+    padding: 0 10px;
+    font-size: 13px;
+  }
+
+  .layout {
+    width: min(100vw - 24px, 720px);
+    margin-top: 18px;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .panel {
+    padding: 10px;
+  }
+
+  .modeBox,
+  .panelActions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .mode {
+    min-height: 42px;
+    padding: 8px 10px;
+  }
+
+  .mode strong {
+    font-size: 18px;
+  }
+
+  .filters {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .filters label {
+    font-size: 13px;
+  }
+
+  .stats strong {
+    font-size: 18px;
+  }
+
+  .questionCard {
+    padding: 18px;
+    padding-bottom: 0;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  .actions {
+    margin: 16px -18px 0;
+    padding: 10px 18px;
+    justify-content: space-between;
+  }
+
+  .actions .btn {
+    flex: 1;
+  }
+
+  .bankHeader,
+  .bankTools {
+    position: static;
+  }
+
+  .bankTools {
+    grid-template-columns: 1fr;
+  }
+}

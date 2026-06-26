@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>党史题库练习</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="mark" aria-hidden="true">✣</span>
+      <div>
+        <h1>党史题库练习</h1>
+        <p>单选、多选、判断 · 本地保存错题</p>
+      </div>
+    </div>
+    <div class="toolbar">
+      <label class="bankPicker">
+        <span>题库</span>
+        <select id="bankSelect">
+          <option value="party">原题库</option>
+          <option value="chaoxing">学习通题库</option>
+        </select>
+      </label>
+      <button id="resetBtn" class="btn secondary" type="button">重置当前题库</button>
+      <button id="shuffleBtn" class="btn primary" type="button">随机顺序</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="panel">
+      <section class="modeBox">
+        <button class="mode active" type="button" data-mode="normal">
+          <span>正常答题</span>
+          <strong id="normalCount">0</strong>
+        </button>
+        <button class="mode" type="button" data-mode="wrong">
+          <span>错题练习</span>
+          <strong id="wrongCount">0</strong>
+        </button>
+      </section>
+
+      <section class="filters" aria-label="题型筛选">
+        <label><input type="checkbox" value="single" checked> 单选题</label>
+        <label><input type="checkbox" value="multiple" checked> 多选题</label>
+        <label><input type="checkbox" value="judge" checked> 判断题</label>
+      </section>
+
+      <section class="stats">
+        <div><span>已答</span><strong id="doneCount">0</strong></div>
+        <div><span>正确</span><strong id="rightCount">0</strong></div>
+        <div><span>正确率</span><strong id="accuracy">0%</strong></div>
+      </section>
+
+      <section class="panelActions">
+        <button id="openBankBtn" class="btn panelBtn" type="button">完整题库</button>
+        <button id="clearWrongBtn" class="btn panelBtn" type="button">清空错题</button>
+      </section>
+    </aside>
+
+    <section class="practice">
+      <div class="questionCard">
+        <div class="questionMeta">
+          <span id="typeBadge" class="badge">单选</span>
+          <form id="jumpForm" class="jumpForm">
+            <label for="jumpInput">第</label>
+            <input id="jumpInput" type="number" min="1" inputmode="numeric" value="1">
+            <span>/</span>
+            <span id="totalText">1</span>
+            <span>题</span>
+          </form>
+        </div>
+
+        <h2 id="questionStem">正在加载题库...</h2>
+        <form id="optionsForm" class="options"></form>
+
+        <div id="feedback" class="feedback" aria-live="polite" hidden></div>
+
+        <div class="actions">
+          <button id="submitBtn" class="btn primary" type="button">提交答案</button>
+          <button id="nextBtn" class="btn secondary" type="button" disabled>下一题</button>
+          <button id="prevBtn" class="btn secondary" type="button">上一题</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="bankDialog" class="bankDialog">
+    <div class="bankHeader">
+      <div>
+        <h2>完整题库</h2>
+        <p id="bankTotal">共 0 题</p>
+      </div>
+      <button id="closeBankBtn" class="btn secondary" type="button">关闭</button>
+    </div>
+
+    <div class="bankTools">
+      <input id="bankSearch" class="textInput" type="search" placeholder="搜索题干、选项或答案">
+      <select id="bankTypeFilter" class="textInput">
+        <option value="all">全部题型</option>
+        <option value="single">单选题</option>
+        <option value="multiple">多选题</option>
+        <option value="judge">判断题</option>
+      </select>
+    </div>
+
+    <div id="bankList" class="bankList"></div>
+  </dialog>
+
+  <script src="questions.js"></script>
+  <script src="chaoxing-questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

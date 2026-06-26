@@ -1,0 +1,5 @@
+学习通/
+*.pdf
+node_modules/
+.DS_Store
+Thumbs.db

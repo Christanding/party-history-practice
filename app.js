@@ -2,6 +2,7 @@
   const banks = [
     { id: "party", name: "原题库", questions: window.QUESTIONS || [], storeKey: "party-history-practice-v1" },
     { id: "chaoxing", name: "学习通题库", questions: window.CHAOXING_QUESTIONS || [], storeKey: "party-history-chaoxing-v1" },
+    { id: "embedded", name: "嵌入式基础题库", questions: window.EMBEDDED_QUESTIONS || [], storeKey: "embedded-basics-practice-v1" },
   ];
   const activeBankKey = "party-history-active-bank-v1";
   const typeNames = { single: "单选", multiple: "多选", judge: "判断" };
